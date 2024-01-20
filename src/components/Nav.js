@@ -1,15 +1,15 @@
-import { Box, HStack, VStack } from "@chakra-ui/react";
+//import '../App.css';
 
 function Nav() {
     return (
         <nav>
-            <ul>
-                <li><a href="https://www.w3schools.com">Home</a></li>
-                <li><a href="https://www.w3schools.com">About</a></li>
-                <li><a href="https://www.w3schools.com">Menu</a></li>
-                <li><a href="https://www.w3schools.com">Reservations</a></li>
-                <li><a href="https://www.w3schools.com">Order online</a></li>
-                <li><a href="https://www.w3schools.com">Login</a></li>
+            <ul className="ul-nav">
+                <li className="li-nav"><a href="http://localhost:3000/">Home</a></li>
+                <li className="li-nav"><a href="http://localhost:3000/">About</a></li>
+                <li className="li-nav"><a href="http://localhost:3000/">Menu</a></li>
+                <li className="li-nav"><a href="http://localhost:3000/">Reservations</a></li>
+                <li className="li-nav"><a href="http://localhost:3000/">Order online</a></li>
+                <li className="li-nav"><a href="http://localhost:3000/">Login</a></li>
             </ul>
         </nav>
     );

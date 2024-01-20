@@ -36,3 +36,258 @@
     transform: rotate(360deg);
   }
 }
+
+#root {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, auto);
+  align-items: center;
+  justify-content: center;
+}
+
+/* header */
+
+header {
+  display: grid;
+  grid-template-columns: minmax(0, 25%) minmax(0, 50%);
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+#img-logo{
+  max-width: 200%;
+  max-height: 200%;
+  object-fit: contain;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px;
+}
+
+nav {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding: 8px;
+}
+
+.ul-nav {
+  list-style-type: none; /* Remove bullets */
+  padding: 8px;
+  align-items: center;
+}
+
+.li-nav {
+  display: inline;
+  margin: 0px;
+  padding: 8px;
+}
+
+/* main */
+main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hero */
+#hero{
+  display: grid;
+  grid-template-columns: minmax(0, 50%) minmax(0, 25%);
+  align-items: center;
+  justify-content: center;
+  background-color: #495E57;
+  padding: 8px;
+}
+
+#section-heroText{
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
+#section-heroImg{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+#section-heroText p{
+  color: white;
+}
+
+.img-hero{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+button {
+  background-color: #F4CE14;
+  height: 48px;
+  width: 240px;
+  border-radius: 16px;
+  padding: 8px;
+  font-size: 18pt;
+  font-weight: medium;
+  font-family: Karla;
+}
+
+/* highlight */
+#highlight{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 75%));
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+#highlight-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#highlight-card{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 32px;
+}
+
+.article-highlightFood{
+  display: grid;
+  grid-template-rows: repeat(4, minmax(0, auto));
+  background-color: #EDEFEE;
+  padding: 8px;
+  border-radius: 16px;
+}
+
+.section-cardTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-orderAdelivery{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-restauranfood {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.img-delivery {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.displayTitle{
+  font-size: 60pt;
+  font-weight: medium;
+  font-family: Markazi Text;
+  color: #F4CE14;
+  margin: auto;
+}
+
+.subTitle{
+  font-size: 40pt;
+  font-weight: normal;
+  font-family: Karla;
+  color: white;
+  margin: auto;
+}
+
+.sectionTitle{
+  font-size: 20pt;
+  font-weight: bold;
+  font-family: Karla;
+  text-transform: uppercase;
+}
+
+.cardTitle{
+  font-size: 18pt;
+  font-weight: bold;
+  font-family: Karla;
+}
+
+.priceText{
+  font-size: 16pt;
+  font-weight: medium;
+  font-family: Karla;
+  color: red;
+}
+
+/* text */
+p{
+  font-size: 16pt;
+  font-weight: normal;
+  font-family: Karla;
+  color: #333333;
+  line-height: 1.5;
+  text-align:start;
+  vertical-align: top;
+}
+
+.callAction{
+  font-size: 18pt;
+  font-weight: medium;
+  font-family: Karla;
+}
+
+a{
+  color: #333333;
+}
+
+
+
+/* footer */
+footer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 18.75%));
+  background-color: #EDEFEE;
+  align-items: start;
+  justify-content: center;
+  padding: 8px;
+}
+
+footer .section-footerLogo{
+  display: grid;
+  grid-template-rows: repeat(1, minmax(0, auto));
+  align-items: center;
+  justify-content: center;
+}
+
+footer .section-footerText{
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, auto));
+  align-items: start;
+  justify-content: center;
+}
+
+#img-footerLogo{
+  max-width: 65%;
+  max-height: 65%;
+  object-fit: contain;
+}
+
+footer ul {
+  padding: 0;
+}
+
+ul{
+  font-size: 16pt;
+  font-weight: lighter;
+  font-family: karla;
+  color: #333333;
+  list-style-type: none; /* Remove bullets */
+}
