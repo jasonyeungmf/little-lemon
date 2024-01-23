@@ -1,5 +1,6 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import Logo from '../images/Asset 9@4x.png';
+import { Routes, Route, Link } from "react-router-dom";
 //import '../App.css';
 
 function Footer() {
@@ -12,12 +13,12 @@ function Footer() {
             <section className="section-footerText">
                 <h3 className='cardTitle'>Doormat navigation</h3>
                 <ul className="ul-doormat">
-                    <li className="li-doormat"><a href="https://www.w3schools.com">Home</a></li>
-                    <li className="li-doormat"><a href="https://www.w3schools.com">About</a></li>
-                    <li className="li-doormat"><a href="https://www.w3schools.com">Menu</a></li>
-                    <li className="li-doormat"><a href="https://www.w3schools.com">Reservations</a></li>
-                    <li className="li-doormat"><a href="https://www.w3schools.com">Order online</a></li>
-                    <li className="li-doormat"><a href="https://www.w3schools.com">Login</a></li>
+                    <li className="li-doormat"><Link to="/" className="nav-item">Home</Link></li>
+                    <li className="li-doormat"><Link to="/about" className="nav-item">About</Link></li>
+                    <li className="li-doormat"><Link to="/menu" className="nav-item">Menu</Link></li>
+                    <li className="li-doormat"><Link to="/reservations" className="nav-item">Reservations</Link></li>
+                    <li className="li-doormat"><Link to="/orderonline" className="nav-item">Order online</Link></li>
+                    <li className="li-doormat"><Link to="/login" className="nav-item">Login</Link></li>
                 </ul>
             </section>
 
