@@ -243,12 +243,10 @@ p{
   font-weight: medium;
   font-family: Karla;
 }
-/*
-Link{
-  color: #333333;
-}*/
 
-
+a:link { color: #0000FF; }
+a:visited { color: #800080; }
+a:active {color: #FF0000;}
 
 /* footer */
 footer {
@@ -290,4 +288,20 @@ ul{
   font-family: karla;
   color: #333333;
   list-style-type: none; /* Remove bullets */
+}
+
+form{
+  display: grid;
+  grid-template-rows: repeat(6, minmax(0, auto));
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: black;
+  border-width: 1px;
+}
+
+.Field{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 8px;
 }

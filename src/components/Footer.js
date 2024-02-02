@@ -26,7 +26,7 @@ function Footer() {
                 <h3 className='cardTitle'>Contact</h3>
                 <ul>
                     <li>Chicago USA</li>
-                    <li>+1 888 8888888</li>
+                    <li>+1 234 56789</li>
                     <li>info@littlelemon.com</li>
                 </ul>
             </section>

@@ -4,6 +4,7 @@ import greekSalad from '../images/greek salad.jpg';
 import bruchetta from '../images/bruchetta.svg';
 import lemonDessert from '../images/lemon dessert.jpg';
 import delivery from '../images/delivery-svgrepo-com.svg';
+import { Link } from "react-router-dom";
 
 function Home() {
     return (
@@ -42,7 +43,7 @@ function Home() {
                         <section className='section-orderAdelivery'>
                             {/* <button id="button-orderAdelivery" type="button">Order a delivery</button> */}
 
-                            <a className='callAction' href="http://localhost:3000/">Order a delivery</a>
+                            <Link to="/orderonline" className="callAction">Order a delivery</Link>
                             <img className="img-delivery" src={delivery} height={32} alt=""/>
                         </section>
                     </article>
@@ -58,7 +59,7 @@ function Home() {
                         </p>
                         <section className='section-orderAdelivery'>
                             {/* <button id="button-orderAdelivery" type="button">Order a delivery</button> */}
-                            <a className='callAction' href="http://localhost:3000/">Order a delivery</a>
+                            <Link to="/orderonline" className="callAction">Order a delivery</Link>
                             <img className="img-delivery" src={delivery} height={32} alt=""/>
                         </section>
                     </article>
@@ -74,7 +75,7 @@ function Home() {
                         </p>
                         <section className='section-orderAdelivery'>
                             {/* <button id="button-orderAdelivery" type="button">Order a delivery</button> */}
-                            <a className='callAction' href="http://localhost:3000/">Order a delivery</a>
+                            <Link to="/orderonline" className="callAction">Order a delivery</Link>
                             <img className="img-delivery" src={delivery} height={32} alt=""/>
                         </section>
                     </article>

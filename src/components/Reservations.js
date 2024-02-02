@@ -1,9 +1,9 @@
+import BookingForm from './BookingForm.js';
 
-function Reservations() {
+function Reservations(props) {
+
     return(
-        <>
-            <p>This is Reservations single apllication page </p>
-        </>
+        <BookingForm newAvailableTimes={props.newAvailableTimes} dispatch={props.dispatch} />
     );
 }
 
