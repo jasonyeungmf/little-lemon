@@ -2,7 +2,11 @@
 function orderOnline() {
     return(
         <>
-            <p>This is orderOnline single apllication page </p>
+            <h2>Order online</h2>
+            <p>This is <b>Order Online</b> page </p>
+            <p>This is <b>Order Online</b> page </p>
+            <p>This is <b>Order Online</b> page </p>
+            <p>This is <b>Order Online</b> page </p>
         </>
     );
 }

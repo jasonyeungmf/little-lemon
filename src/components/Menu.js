@@ -2,7 +2,11 @@
 function Menu() {
     return(
         <>
-            <p>This is Menu Single Apllication Page </p>
+            <h2>Menu</h2>
+            <p>This is <b>Menu</b> page </p>
+            <p>This is <b>Menu</b> page </p>
+            <p>This is <b>Menu</b> page </p>
+            <p>This is <b>Menu</b> page </p>
         </>
     );
 }

@@ -2,7 +2,11 @@
 function About() {
     return(
         <>
-            <p>This is About SAP </p>
+            <h2>About us</h2>
+            <p>This is <b>About</b> page </p>
+            <p>This is <b>About</b> page </p>
+            <p>This is <b>About</b> page </p>
+            <p>This is <b>About</b> page </p>
         </>
     );
 }

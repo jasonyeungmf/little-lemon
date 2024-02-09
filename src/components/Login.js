@@ -2,7 +2,11 @@
 function Login() {
     return(
         <>
-            <p>This is Login single apllication page </p>
+            <h2>Login</h2>
+            <p>This is <b>Login</b> page </p>
+            <p>This is <b>Login</b> page </p>
+            <p>This is <b>Login</b> page </p>
+            <p>This is <b>Login</b> page </p>
         </>
     );
 }

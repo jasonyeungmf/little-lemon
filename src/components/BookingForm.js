@@ -2,73 +2,98 @@ import React, { useState } from "react";
 
 
 function BookingForm(props) {
-    
-    let today = new Date().toISOString().slice(0, 10)
-    const [date, setDate] = useState(today);
-    const [time, setTime] = useState("17:00");
+    const today = new Date();//Fri Feb 16 2024 17:00:00 GMT-0700 (Mountain Standard Time)
+    //const todayISOString = today.toISOString()//2024-02-08T18:54:38.273Z
+    const today_yyyy_mm_dd = today.toISOString().slice(0, 10);//2024-02-08
+    const [date, setDate] = useState(today_yyyy_mm_dd);
+    const [time, setTime] = useState(props.newAvailableTimes[0]);
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("Birthday");
 
-    const clearForm = () => {
-        setDate(today);
-        setTime("17:00");
+    function handleDateChange(e){
+        setDate(e.target.value); 
+        props.dispatch({
+            type: "DATE_IS_CHANGED",
+            bookedDate: e.target.value,
+        });
+        //console.log(e.target.value);
+        //console.log(new Date(e.target.value));
+    }
+
+    function handleTimeChanged(e){
+        setTime(e.target.value);
+    }
+
+    function handleGuestsChange(e){
+        setGuests(e.target.value);
+    }
+
+    function handleOccasionChange(e){
+        setOccasion(e.target.value);
+    }
+
+    const resetForm = () => {
+        setDate(today_yyyy_mm_dd);
+        setTime(props.newAvailableTimes[0]);
         setGuests(1);
         setOccasion("Birthday");
       };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Reservation was made!"+"\ndate="+e.target.date.value+
-        "\ntime="+e.target.time.value+
-        "\nguests="+e.target.guests.value+
-        "\noccasion="+e.target.occasion.value);
-        console.log(e.target.date.value);
-        console.log(e.target.time.value);
-        console.log(e.target.guests.value);
-        console.log(e.target.occasion.value);
-        props.dispatch({ type:"FORM_IS_SUBMITTED", bookedDate:e.target.date.value, bookedTime:e.target.time.value});
-        //clearForm();
+
+        const string="Reservation was made!"+
+        "\ndate="+date+
+        "\ntime="+time+
+        "\nguests="+guests+
+        "\noccasion="+occasion;
+        alert(string);
+
+        //const formData = [e.target.date.value, e.target.time.value, e.target.guests.value, e.target.occasion.value];
+        console.log(date,time,guests,occasion);
+        const formData =[date, time, guests, occasion];
+        props.submitForm(formData);
+        resetForm();
       };
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form name="bookingForm" onSubmit={(e) => handleSubmit(e)}>
                         <h2>Book a table</h2>
                         <section className="Field">
-                            <label htmlFor="res-date">Choose date<sup>*</sup> </label>
+                            <label htmlFor="date">Choose date</label>
                             <input
                                 type="date"
                                 value={date}
-                                onChange={(e) => {setDate(e.target.value);
-                                    props.dispatch({ type:"DATE_IS_CHANGED", bookedDate: e.target.value });}}
-                                placeholder={today}
-                                min={today}
-                                id="res-date"
+                                onChange={(e) => handleDateChange(e)}
+                                placeholder={date}
+                                min={today_yyyy_mm_dd}
+                                id="date"
                                 name="date"
                             />
                         </section>
 
                         <section className="Field">
-                            <label htmlFor="res-time">Choose time<sup>*</sup></label>
+                            <label htmlFor="time">Choose time</label>
                             <select
                                 value={time}
-                                onChange={(e) => {setTime(e.target.value);}}
+                                onChange={(e) => handleTimeChanged(e)}
                                 placeholder={time}
-                                id="res-time"
+                                id="time"
                                 name="time"
                             >
-                            {props.newAvailableTimes.map((availableTime) => (
-                                <option key={availableTime.id}>{availableTime.time}</option>
-                            ))}
+                                {Array.isArray(props.newAvailableTimes) && props.newAvailableTimes.map((availableTime, index) => (
+                                    <option key={index} value={availableTime}>{availableTime}</option>
+                                ))}
                             </select>
                         </section>
 
                         <section className="Field">
-                            <label htmlFor="guests">Number of guests<sup>*</sup></label>
+                            <label htmlFor="guests">Number of guests</label>
                             <input
                                 type="number"
                                 value={guests}
-                                onChange={(e) => {setGuests(e.target.value);}}
+                                onChange={(e) => handleGuestsChange(e)}
                                 placeholder="1"
                                 min="1"
                                 max="10"
@@ -78,10 +103,10 @@ function BookingForm(props) {
                         </section>
 
                         <section className="Field">
-                            <label htmlFor="occasion">Occasion<sup>*</sup></label>
+                            <label htmlFor="occasion">Occasion</label>
                             <select
                                 value={occasion}
-                                onChange={(e) => {setOccasion(e.target.value);}}
+                                onChange={(e) => handleOccasionChange(e)}
                                 id="occasion"
                                 name="occasion"
                             >
@@ -90,7 +115,7 @@ function BookingForm(props) {
                             </select>
                         </section>
 
-                        <input type="submit" value="Make Your reservation"></input>
+                        <input type="submit" name="bookingButton" value="Make Your reservation"/>
             </form>
         </>
     );

@@ -4,45 +4,42 @@ import Menu from './Menu.js';
 import Reservations from './Reservations.js';
 import Orderonline from './Orderonline.js';
 import Login from './Login.js';
-import { Routes, Route } from "react-router-dom";
-import { useReducer } from 'react';
+import ConfirmedBooking from './ConfirmedBooking.js'
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useReducer, useEffect } from 'react';
+import {fetchAPI, submitAPI} from './API.js'
+
+export function initializeTimes(){
+    const today = new Date();
+    return fetchAPI(today);
+    /*
+    return( ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"]);
+    */
+}
+
+export function updateTimes(state, action){
+    if (action.type === 'DATE_IS_CHANGED') {
+            //state.filter(time => time.id !== action.id)
+            //state = state.filter(time => time.id !== "22:00")
+            //return state;
+            const date = new Date(action.bookedDate);
+            return fetchAPI(date);
+    }else{
+        return state;
+    }
+}
+
 
 function Main() {
-    function initializeTimes(){
-        return(
-            [
-                {id: "17:00", time: "17:00"},
-                {id: "18:00", time: "18:00"},
-                {id: "19:00", time: "19:00"},
-                {id: "20:00", time: "20:00"},
-                {id: "21:00", time: "21:00"},
-                {id: "22:00", time: "22:00"},
-            ]);
-    }
+    const [newAvailableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
-
-    function updateTimes(state, action){
-        if (action.type === 'FORM_IS_SUBMITTED') {
-            //if (bookedTimesByDate.filter(x => x.bookedDate === action.bookedDate && x.bookedTime===action.bookedTime).length === 0) {
-            //    bookedTimesByDate.push({bookedDate: action.bookedDate, bookedTime: action.bookedTime});
-            //}
-    
-            return (
-                state
-            );
-        }else if (action.type === 'DATE_IS_CHANGED') {
-            //availableTimesByDate.forEach((element) => 
-            //    availableTimes.filter(availableTime => element.bookedDate === action.date && availableTime.time !== element.bookedTime)
-            //    );
-                //state.filter(time => time.id !== action.id)
-                //state.filter(time => time.id !== "22:00")
-                return state;
-        }else{
-            return state;
+    const navigate = useNavigate();
+    function submitForm(formData){
+        const isAvailableTime = submitAPI(formData);
+        if (isAvailableTime) {
+            navigate("/confirmedbooking");
         }
     }
-
-    const [newAvailableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
     return (
         <main>
@@ -50,9 +47,16 @@ function Main() {
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/about" element={<About />}></Route>
                 <Route path="/menu" element={<Menu />}></Route>
-                <Route path="/reservations" element={<Reservations newAvailableTimes={newAvailableTimes} dispatch={dispatch} />}></Route>
+                <Route path="/reservations" element={
+                    <Reservations 
+                        newAvailableTimes={newAvailableTimes} 
+                        dispatch={dispatch}
+                        submitForm={submitForm}
+                    />}
+                ></Route>
                 <Route path="/orderonline" element={<Orderonline />}></Route>
                 <Route path="/login" element={<Login />}></Route>
+                <Route path="/confirmedbooking" element={<ConfirmedBooking />}></Route>
             </Routes>
         </main>
     );
