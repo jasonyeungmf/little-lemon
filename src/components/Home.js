@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     return (
-        <main>
+        <>
             <section id="hero">
                 <section id="section-heroText">
                     <section id='section-heroTitle'>
@@ -81,7 +81,7 @@ function Home() {
                     </article>
                 </section>
             </section>
-        </main>
+        </>
     );
 }
 

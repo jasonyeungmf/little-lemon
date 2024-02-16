@@ -1,13 +1,16 @@
 
 function orderOnline() {
     return(
-        <>
-            <h2>Order online</h2>
-            <p>This is <b>Order Online</b> page </p>
-            <p>This is <b>Order Online</b> page </p>
-            <p>This is <b>Order Online</b> page </p>
-            <p>This is <b>Order Online</b> page </p>
-        </>
+        <article className="articlePage">
+            <section className="articleContent">
+                <h1 className='displayTitle'>Order online</h1>
+                <p className="articleText">This is <b>Order Online</b> page </p>
+                <p className="articleText">This is <b>Order Online</b> page </p>
+                <p className="articleText">This is <b>Order Online</b> page </p>
+                <p className="articleText">This is <b>Order Online</b> page </p>
+            </section>
+            
+        </article>
     );
 }
 

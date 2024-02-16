@@ -1,13 +1,16 @@
 
 function Menu() {
     return(
-        <>
-            <h2>Menu</h2>
-            <p>This is <b>Menu</b> page </p>
-            <p>This is <b>Menu</b> page </p>
-            <p>This is <b>Menu</b> page </p>
-            <p>This is <b>Menu</b> page </p>
-        </>
+        <article className="articlePage">
+            <section >
+                <h1 className='displayTitle'>Menu</h1>
+                <p className="articleText">This is <b>Menu</b> page </p>
+                <p className="articleText">This is <b>Menu</b> page </p>
+                <p className="articleText">This is <b>Menu</b> page </p>
+                <p className="articleText">This is <b>Menu</b> page </p>
+            </section>
+            
+        </article>
     );
 }
 

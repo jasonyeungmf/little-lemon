@@ -1,13 +1,15 @@
 
 function About() {
     return(
-        <>
-            <h2>About us</h2>
-            <p>This is <b>About</b> page </p>
-            <p>This is <b>About</b> page </p>
-            <p>This is <b>About</b> page </p>
-            <p>This is <b>About</b> page </p>
-        </>
+        <article className="articlePage">
+            <section className="articleContent">
+                <h1 className='displayTitle'>About us</h1>
+                <p className="articleText">This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page</p>
+                <p className="articleText">This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page</p>
+                <p className="articleText">This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page</p>
+                <p className="articleText">This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page This is <b>About</b> page</p>
+            </section>
+        </article>
     );
 }
 
