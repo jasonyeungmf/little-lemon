@@ -63,8 +63,13 @@ describe('Booking form', () => {
           submitForm={submitForm}
         />
     );
+    const today = new Date().toISOString().slice(0, 10);
+    const dateInput = screen.getByLabelText(/Date/);
+    fireEvent.change(dateInput, { target: { value: today } });
     const timeInput = screen.getByLabelText(/Time/);
     fireEvent.change(timeInput, { target: { value: "17:00" } });
+    const guestInput = screen.getByLabelText(/Number of guests/);
+    fireEvent.change(guestInput, { target: { value: 1 } });
     const occasionInput = screen.getByLabelText(/Occasion/);
     fireEvent.change(occasionInput, { target: { value: "Birthday" } });
 

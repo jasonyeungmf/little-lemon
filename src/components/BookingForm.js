@@ -51,12 +51,6 @@ function BookingForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        //const string="Reservation was made!"+"\ndate="+date+"\ntime="+time+"\nguests="+guests+"\noccasion="+occasion;
-        //alert(string);
-
-        //const formData = [e.target.date.value, e.target.time.value, e.target.guests.value, e.target.occasion.value];
-        //console.log(date,time,guest,occasion);
         const formData =[date, time, guest, occasion];
         props.submitForm(formData);
         resetForm();
@@ -116,7 +110,7 @@ function BookingForm(props) {
         <article className="articlePage">
             <h1 className='displayTitle'>Reservation</h1>
             <form name="bookingForm" onSubmit={(e) => handleSubmit(e)}>
-                        <h2 className="bookingFormTitle">Book a table</h2>
+                        <h2 className='cardTitle'>Book a table</h2>
                         <section className="Field" >
                             <label htmlFor="date">Date</label>
                             <input

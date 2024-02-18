@@ -37,7 +37,8 @@ function Main() {
     function submitForm(formData){
         const isAvailableTime = submitAPI(formData);
         if (isAvailableTime) {
-            navigate("/confirmedbooking");
+            navigate("/confirmedbooking",
+            {state: {date: formData[0], time: formData[1], guest: formData[2], occassion: formData[3]}});
         }
     }
 
